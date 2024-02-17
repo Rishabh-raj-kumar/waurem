@@ -1,7 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth,db } from "../../../firebaseConfig";
+import {collection, addDoc, Timestamp} from 'firebase/firestore'
 
 function Signup() {
+  const [email,setEmail] = useState('')
+  const [name,setName] = useState('')
+  const [password,setPassword] = useState('')
+  const [confirmPass,setConfirmPass] = useState('')
+  const navigate = useNavigate()
+
+  const onSubmit = async (event) =>{
+
+    console.log(name,email,password)
+     event.preventDefault()
+
+     await createUserWithEmailAndPassword(auth,email,password)
+     .then((userCred) => {
+      const user = userCred.user;
+       addDoc(collection(db, 'users'), {
+        name: name,
+        email: email,
+        password : password,
+        created: Timestamp.now()
+      })
+      console.log(user);
+      navigate('/auth/login');
+     })
+     .catch((err) =>{
+      console.log(err.code)
+      console.log(err.message)
+     })
+  }
   return (
     <div class="h-full bg-green-500 dark:bg-gray-900">
       <div class="mx-auto">
@@ -31,6 +64,7 @@ function Signup() {
                       id="firstName"
                       type="text"
                       placeholder="First Name"
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div class="md:ml-2">
@@ -60,6 +94,7 @@ function Signup() {
                     id="email"
                     type="email"
                     placeholder="Email"
+                    onChange={(e)=> setEmail(e.target.value) }
                   />
                 </div>
                 <div class="mb-4 md:flex md:justify-between">
@@ -75,6 +110,7 @@ function Signup() {
                       id="password"
                       type="password"
                       placeholder="******************"
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                     <p class="text-xs italic text-red-500">
                       Please choose a password.
@@ -99,6 +135,7 @@ function Signup() {
                   <button
                     class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-900 focus:outline-none focus:shadow-outline"
                     type="button"
+                    onClick={onSubmit}
                   >
                     Register Account
                   </button>

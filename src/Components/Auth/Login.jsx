@@ -21,6 +21,7 @@ function Login() {
       .then((userCred) => {
         const user = userCred.user;
         console.log(user);
+        localStorage.setItem('user',JSON.stringify({email}))
         navigate("/");
         // toast.success("Login Success!", {
         //   position: toast.POSITION.BOTTOM_RIGHT,

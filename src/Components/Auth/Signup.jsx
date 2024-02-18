@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth,db } from "../../../firebaseConfig";
+import { auth} from "../../../firebaseConfig";
+import { db } from "../../../firebaseConfig";
 import {collection, addDoc, Timestamp} from 'firebase/firestore'
 
 function Signup() {
@@ -21,12 +22,15 @@ function Signup() {
      await createUserWithEmailAndPassword(auth,email,password)
      .then((userCred) => {
       const user = userCred.user;
-       addDoc(collection(db, 'users'), {
+    
+      addDoc(collection(db, 'users'), {
         name: name,
         email: email,
         password : password,
         created: Timestamp.now()
       })
+
+      localStorage.setItem('user',JSON.stringify({name : name,email : email}))
       console.log(user);
       navigate('/auth/login');
      })

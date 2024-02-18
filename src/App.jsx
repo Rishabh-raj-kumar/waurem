@@ -14,20 +14,37 @@ import { auth } from '../firebaseConfig'
 import AuthContext from './Components/Auth/LoginContainer'
 import { useEffect, useState } from 'react'
 import Camera from './Components/Home/Camera'
+import Create from './Components/Blogs/Create'
+import Bloglist from './Components/Blogs/BlogList'
+import BlogView from './Components/Blogs/BlogView'
+import BlogEdit from './Components/Blogs/BlogEdit'
 
 function App() { 
   const [user,setUser] = useState(null);
 
+  // useEffect(() =>{
+  //     try{
+  //       const data =localStorage.getItem('user');
+  //       if(data !== null){
+  //            setUser(user => !user)
+  //       }
+  //     }catch(err){
+  //       console.log(err)
+  //     }
+  // },[user])
+
   useEffect(() =>{
-    const users = auth.currentUser;
-    try{
-      if(users){
-        setUser(user)
-      }
-    }catch(err){
-      console.log(err)
-    }
-  },[])
+    // const users = auth.currentUser;
+    // console.log(users)
+
+    auth.onAuthStateChanged(users => {
+        if(users){
+          setUser(users)
+        }else{
+           console.log('error while loading user...')
+        }
+    })
+  },[user])
 
   return(
     <>
@@ -35,11 +52,14 @@ function App() {
     <Router>
       <Routes>
          <Route path='/' index element={<Layout/>}/>
-         <Route path='blogs' element={<Blogs/>}/>
+         <Route path='blogs' element={<Bloglist/>}/>
          <Route path='goals' element={<Goals/>}/>
          <Route path='contact' element={<Contact/>} />
          <Route path='about' element={<About />}/>
          <Route path='mission' element={<Mission/>}/>
+         <Route path='create' element={<Create/>}/>
+         <Route path='/blog/:id' element={<BlogView/>}  />
+         <Route path='/blog/edit/:id' element={<BlogEdit/>}  />
          <Route path='/open/camera' element={<Camera/>}/>
          <Route path='auth/login' element={<Login/>}/>
          <Route path='auth/signup' element={<Signup/>}/>

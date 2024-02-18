@@ -83,6 +83,24 @@ function Header({ active }) {
                   <svg className=" float-left bg-green-700 rounded-full " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg>
                   Create
                 </Link>
+                <Link
+                  to="/tips"
+                  class={` flex py-2 pr-4 pl-3 ${
+                    active === "create" ? "text-gray-100" : "text-gray-100"
+                  } border-b bg-orange-500 shadow-lg shadow-orange-600 rounded-md border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:border lg:hover:border-orange-600 lg:border-0 lg:hover:text-primary-700 lg:px-3 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M7.94101 18C7.64391 16.7274 6.30412 15.6857 5.75395 14.9992C4.65645 13.6297 4 11.8915 4 10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10C20 11.8925 19.3428 13.6315 18.2443 15.0014C17.6944 15.687 16.3558 16.7276 16.059 18H7.94101ZM16 20V21C16 22.1046 15.1046 23 14 23H10C8.89543 23 8 22.1046 8 21V20H16ZM13 10.0048V6L8.5 12.0048H11V16.0048L15.5 10.0048H13Z"></path></svg>
+                  Tips
+                </Link>
+                <Link
+                  to="/points"
+                  class={` flex items-center gap-1 py-2 pr-4 pl-3 ${
+                    active === "create" ? "text-gray-100" : "text-gray-100"
+                  } border-b bg-purple-500 shadow-lg shadow-purple-600 rounded-md border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:border lg:hover:border-purple-600 lg:border-0 lg:hover:text-primary-700 lg:px-3 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.0049 4.00275C18.08 4.00275 23.0049 6.68904 23.0049 10.0027V14.0027C23.0049 17.3165 18.08 20.0027 12.0049 20.0027C6.03824 20.0027 1.18114 17.4115 1.00957 14.1797L1.00488 14.0027V10.0027C1.00488 6.68904 5.92975 4.00275 12.0049 4.00275ZM12.0049 16.0027C8.28443 16.0027 4.99537 14.9953 3.00466 13.4532L3.00488 14.0027C3.00488 15.8849 6.88751 18.0027 12.0049 18.0027C17.0156 18.0027 20.8426 15.9723 20.9999 14.1207L21.0049 14.0027L21.0061 13.4524C19.0155 14.9949 15.726 16.0027 12.0049 16.0027ZM12.0049 6.00275C6.88751 6.00275 3.00488 8.12054 3.00488 10.0027C3.00488 11.8849 6.88751 14.0027 12.0049 14.0027C17.1223 14.0027 21.0049 11.8849 21.0049 10.0027C21.0049 8.12054 17.1223 6.00275 12.0049 6.00275Z"></path></svg>
+                  Points
+                </Link>
                   </>
                 ) : (
                   <>

@@ -40,7 +40,7 @@ const Bloglist = () => {
       <div className=" flex flex-wrap gap-2">
       {blogslist.map((blog) => (
         <div key={blog.id} className=" border-2 ">
-          <img className=" w-64" src={blog.coverImg}/>
+          <img className=" w-64 h-40 object-cover" src={blog.coverImg}/>
           <p>Title : {blog.Title}</p>
           <Link
             to={"/blog/" + blog.id}

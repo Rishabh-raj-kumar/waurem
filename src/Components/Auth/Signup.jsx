@@ -24,6 +24,7 @@ function Signup() {
       const user = userCred.user;
     
       addDoc(collection(db, 'users'), {
+        uid : user.uid,
         name: name,
         email: email,
         password : password,

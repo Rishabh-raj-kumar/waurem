@@ -1,5 +1,7 @@
-import React from "react";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { db } from "../../../firebaseConfig";
 
 function Home() {
   return (
@@ -43,10 +45,13 @@ function Home() {
           <div class="mx-auto max-w-2xl text-center">
             <h1 class="text-4xl font-bold tracking-tight text-green-600 sm:text-6xl">
               Reimagine waste:
-              <span class="text-gray-900">Reduce, Reuse, Earn with our Innovative App.</span>
+              <span class="text-gray-900">
+                Reduce, Reuse, Earn with our Innovative App.
+              </span>
             </h1>
             <h2 class="mt-6 text-lg leading-8 text-gray-600">
-            Turn trash into treasure. Get started with our app and join the waste revolution!
+              Turn trash into treasure. Get started with our app and join the
+              waste revolution!
             </h2>
             <div class="mt-10 flex items-center justify-center gap-x-6">
               <button className=" p-3 bg-blue-500 text-yellow-50 rounded-sm shadow-md m-4">
@@ -85,33 +90,33 @@ function Home() {
               <div class="flex-1 px-3">
                 <div
                   class="p-12 rounded-lg border bg-green-300 border-solid border-gray-200 mb-8"
-                  style={{boxShadow:"0 10px 28px rgba(0,0,0,.08)"}}
+                  style={{ boxShadow: "0 10px 28px rgba(0,0,0,.08)" }}
                 >
                   <p class="font-semibold text-xl">1.</p>
                   <p class="mt-4">
-                  Powerful AI identifies waste and suggests reuse ideas
+                    Powerful AI identifies waste and suggests reuse ideas
                   </p>
                 </div>
               </div>
               <div class="flex-1 px-3">
                 <div
                   class="p-12 rounded-lg border bg-green-300 border-solid border-gray-200 mb-8"
-                  style={{boxShadow:"0 10px 28px rgba(0,0,0,.08)"}}
+                  style={{ boxShadow: "0 10px 28px rgba(0,0,0,.08)" }}
                 >
                   <p class="font-semibold text-xl">2.</p>
                   <p class="mt-4">
-                  Connect with other waste warriors and share ideas
+                    Connect with other waste warriors and share ideas
                   </p>
                 </div>
               </div>
               <div class="flex-1 px-3">
                 <div
                   class="p-12 rounded-lg bg-green-300 border border-solid border-gray-200 mb-8"
-                  style={{boxShadow:"0 10px 28px rgba(0,0,0,.08)"}}
+                  style={{ boxShadow: "0 10px 28px rgba(0,0,0,.08)" }}
                 >
                   <p class="font-semibold text-xl">3.</p>
                   <p class="mt-4">
-                  Earn points for reducing and reusing, redeem for rewards
+                    Earn points for reducing and reusing, redeem for rewards
                   </p>
                 </div>
               </div>
@@ -128,7 +133,7 @@ function Home() {
               <div class="flex-1 px-3">
                 <div
                   class="p-12 rounded-lg border border-solid border-gray-200 mb-8"
-                  style={{boxShadow:"0 10px 28px rgba(0,0,0,.08)"}}
+                  style={{ boxShadow: "0 10px 28px rgba(0,0,0,.08)" }}
                 >
                   <p class="text-xl font-semibold">
                     Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -155,7 +160,7 @@ function Home() {
               <div class="flex-1 px-3">
                 <div
                   class="p-12 rounded-lg border border-solid border-gray-200 mb-8"
-                  style={{boxShadow:"0 10px 28px rgba(0,0,0,.08)"}}
+                  style={{ boxShadow: "0 10px 28px rgba(0,0,0,.08)" }}
                 >
                   <p class="text-xl font-semibold">
                     Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -182,7 +187,7 @@ function Home() {
               <div class="flex-1 px-3">
                 <div
                   class="p-12 rounded-lg border border-solid border-gray-200 mb-8"
-                  style={{boxShadow:"0 10px 28px rgba(0,0,0,.08)"}}
+                  style={{ boxShadow: "0 10px 28px rgba(0,0,0,.08)" }}
                 >
                   <p class="text-xl font-semibold">
                     Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -211,18 +216,21 @@ function Home() {
         </section>
 
         <section class="container mx-auto my-20 py-14 bg-green-200 rounded-lg text-center">
-          <h3 class="text-5xl text-green-700 font-semibold">Ready to Explore the App?</h3>
+          <h3 class="text-5xl text-green-700 font-semibold">
+            Ready to Explore the App?
+          </h3>
           <p class="mt-8 text-xl font-light text-green-700">
-            Create a Free account and get started with our mission to reduce the waste and reuse it again.
+            Create a Free account and get started with our mission to reduce the
+            waste and reuse it again.
           </p>
           <p class="mt-8">
             <Link to={"/auth/signup"}>
-            <button
-              type="button"
-              class=" py-5 px-16 text-lg bg-teal-500 hover:bg-teal-600 rounded text-white "
-            >
-              Create Account
-            </button>
+              <button
+                type="button"
+                class=" py-5 px-16 text-lg bg-teal-500 hover:bg-teal-600 rounded text-white "
+              >
+                Create Account
+              </button>
             </Link>
           </p>
         </section>

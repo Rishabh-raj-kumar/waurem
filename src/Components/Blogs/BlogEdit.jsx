@@ -51,15 +51,19 @@ const BlogEdit = () => {
         <div className='text-black'>
 
         <form onSubmit={(event) => {sub(event)}}>    
-            <input type="text" placeholder="Title"  value={title}
+            <input 
+            className=' border-2 px-4 py-2 m-2 border-gray-700 rounded bg-black shadow-xl text-white'
+            type="text" placeholder="Title"  value={title}
             onChange={(e)=>{SetTitle(e.target.value)}} required />
 
-            <textarea  name="content" type="text" value={body}
+            <textarea
+            className=' border-2 border-gray-700 rounded m-2 p-2'
+              name="content" type="text" value={body}
             placeholder="write yoyr content here" 
             rows="10" cols="150" onChange={(e)=>{SetBody(e.target.value)}} required >
             </textarea>
 
-            <button type="submit">Submit</button>
+            <button className=' px-4 py-2 bg-black text-white rounded m-2' type="submit">Submit</button>
         </form>
         </div>
     );

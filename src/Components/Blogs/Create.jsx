@@ -6,6 +6,7 @@ import { getDownloadURL, getStorage,ref, uploadBytesResumable} from 'firebase/st
 
 function Create() {
   const [title, setTitle] = useState("");
+  const [tag, setTag] = useState("");
   const [body, setBody] = useState("");
   const [cover,setCover] = useState(null);
   const storage = getStorage();
@@ -63,6 +64,7 @@ function Create() {
           addDoc(collection(db, "blogs"), {
             Title: title,
             Body: body,
+            Tag : tag.toLowerCase(),
             publish: false,
             coverImg : downloadURL
           })
@@ -86,6 +88,7 @@ function Create() {
         }}
       >
         <input
+        className=" border-2 rounded-sm m-3 outline-none text-gray-700 p-2 text-xl"
           type="text"
           placeholder="Title"
           onChange={(e) => {
@@ -93,12 +96,24 @@ function Create() {
           }}
           required
         />
-        <input type="file" accept="image/*" onChange={handleCoverChange} />
+        <input
+        className=" border-2 rounded-sm m-3 outline-none text-gray-700 p-2 text-xl"
+          type="text"
+          placeholder="Tag"
+          onChange={(e) => {
+            setTag(e.target.value);
+          }}
+          required
+        />
+        <div className=" text-gray-700 space-x-5 border-2 m-2 p-2">
+        <label>Select Cover Image</label>
+        <input  type="file" accept="image/*" onChange={handleCoverChange} />
+        </div>
 
 <Editor
       apiKey='bhsxsod5es6p13a7rthahghutole9fgqw19hyhyzxh5526fx'
       init={{
-        height: 500,
+        height: 400,
         menubar: false,
         plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
@@ -114,7 +129,7 @@ function Create() {
       onEditorChange={(newText) => setBody(newText)}
     />
 
-        <button className="bg-black" type="submit">
+        <button className="bg-black px-5 py-2 tracking-wide uppercase m-2" type="submit">
           Submit
         </button>
       </form>

@@ -22,14 +22,14 @@ function Header({ active }) {
         // Sign-out successful.
         navigate("/auth/login");
         console.log("Signed out successfully");
-        toast.success("Success!", {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        // toast.success("Success!", {
+        //   position: toast.POSITION.BOTTOM_RIGHT,
+        // });
       })
       .catch((error) => {
-        toast.error("Error while Doing !", {
-          position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        // toast.error("Error while Doing !", {
+        //   position: toast.POSITION.BOTTOM_RIGHT,
+        // });
       });
   };
 
@@ -112,14 +112,14 @@ function Header({ active }) {
                     >
                       Mission
                     </Link>
-                    <Link
+                    {/* <Link
                       to="/goals"
                       class={`block py-2 pr-4 pl-3 ${
                         active === "goals" ? "text-gray-100" : "text-gray-400"
                       } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:px-3 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
                     >
                       Future Goals
-                    </Link>
+                    </Link> */}
                   </>
                 )}
               </ul>
@@ -141,15 +141,15 @@ function Header({ active }) {
                   } absolute -left-28 top-16 w-48 h-max bg-slate-400`}
                 >
                   <ul className="flex flex-col">
-                    <li className=" text-center p-3 border cursor-pointer hover:bg-gray-600">
+                    <Link to="/profile" className=" text-center p-3 border cursor-pointer hover:bg-gray-600">
                       Profile
-                    </li>
-                    <li className=" text-center p-3 border cursor-pointer hover:bg-gray-600">
+                    </Link>
+                    <Link to="/about" className=" text-center p-3 border cursor-pointer hover:bg-gray-600">
                       About
-                    </li>
-                    <li className=" text-center p-3 border cursor-pointer hover:bg-gray-600">
+                    </Link>
+                    <Link to="/help" className=" text-center p-3 border cursor-pointer hover:bg-gray-600">
                       Help
-                    </li>
+                    </Link>
                     <li
                       className=" text-center p-3 border cursor-pointer hover:bg-gray-600"
                       onClick={handleLogout}

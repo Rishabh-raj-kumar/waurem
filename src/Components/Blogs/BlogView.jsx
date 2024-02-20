@@ -27,10 +27,11 @@ function BlogView() {
     console.log(blog)
   }, []);
   return (
-    <div className=" text-black">
+    <div className=" text-black p-3">
       {/* {console.log(blog)} */}
       <h1>Title :  {blog.Title}</h1>
-      <img src={blog.coverImg}/>
+      <p>Tag : <span className=" bg-purple-200 p-1 px-2 rounded-full text-purple-700">{blog.Tag}</span></p>
+      <img className=" w-full h-80 object-contain" src={blog.coverImg}/>
       <div dangerouslySetInnerHTML={{__html : blog.Body}}></div>
     </div>
   );

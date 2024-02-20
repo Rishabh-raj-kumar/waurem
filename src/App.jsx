@@ -19,6 +19,7 @@ import Bloglist from './Components/Blogs/BlogList'
 import BlogView from './Components/Blogs/BlogView'
 import BlogEdit from './Components/Blogs/BlogEdit'
 import Points from './Components/Info/Points'
+import Profile from './Components/Profile/Profile'
 
 function App() { 
   const [user,setUser] = useState(null);
@@ -60,6 +61,7 @@ function App() {
          <Route path='mission' element={<Mission/>}/>
          <Route path='create' element={<Create/>}/>
          <Route path='points' element={<Points/>}/>
+         <Route path='profile' element={<Profile/>}/>
          <Route path='/blog/:id' element={<BlogView/>}  />
          <Route path='/blog/edit/:id' element={<BlogEdit/>}  />
          <Route path='/open/camera' element={<Camera/>}/>

@@ -6,7 +6,8 @@ function About() {
   return (
     <>
     <Header active={"about"}/>
-    <section className="flex items-center bg-blue-100 xl:min-h-screen font-poppins dark:bg-gray-800 ">
+    <section className="flex items-center xl:min-h-screen font-poppins dark:bg-gray-800 "
+    style={{backgroundImage : "url('/bg_greeen.jpg')"}}>
       <div className="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
         <div className="px-4 mb-10 md:text-center md:mb-20">
           <p className="mb-2 text-lg font-semibold text-blue-500 dark:text-gray-400">
@@ -34,8 +35,8 @@ function About() {
               We are providing a better facility
             </h2>
             <ul className="mb-10">
-              <li className="flex items-center mb-4 text-base text-gray-600 dark:text-gray-400">
-                <span className="mr-3 text-blue-500 dark:text-blue-400 ">
+              <li className="flex items-center mb-4 text-base text-green-700 stroke-black dark:text-gray-400">
+                <span className="mr-3 text-green-800 dark:text-blue-400 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -49,8 +50,8 @@ function About() {
                 </span>
                 Users can scan any waste item with their phone camera.
               </li>
-              <li className="flex items-center mb-4 text-base text-gray-600 dark:text-gray-400">
-                <span className="mr-3 text-blue-500 dark:text-blue-400">
+              <li className="flex items-center mb-4 text-base text-green-700 stroke-black dark:text-gray-400">
+                <span className="mr-3 text-green-800 dark:text-blue-400">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -64,8 +65,8 @@ function About() {
                 </span>
                 The app uses AI-powered image recognition to identify the type of waste and suggest various reuse possibilities.
               </li>
-              <li className="flex items-center mb-4 text-base text-gray-600 dark:text-gray-400">
-                <span className="mr-3 text-blue-500 dark:text-blue-400 ">
+              <li className="flex items-center mb-4 text-base text-green-700 stroke-black dark:text-gray-400">
+                <span className="mr-3 text-green-800 dark:text-blue-400 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -79,8 +80,8 @@ function About() {
                 </span>
                 Users can share their creative reuse projects within the app, inspiring others and fostering a community around sustainability.
               </li>
-              <li className="flex items-center mb-4 text-base text-gray-600 dark:text-gray-400">
-                <span className="mr-3 text-blue-500 dark:text-blue-400 ">
+              <li className="flex items-center mb-4 text-base text-green-700 stroke-black dark:text-gray-400">
+                <span className="mr-3 text-green-800 dark:text-blue-400 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -94,8 +95,8 @@ function About() {
                 </span>
                 The app offers a reward system where users earn points for reducing and reusing waste.
               </li>
-              <li className="flex items-center mb-4 text-base text-gray-600 dark:text-gray-400">
-                <span className="mr-3 text-blue-500 dark:text-blue-400 ">
+              <li className="flex items-center mb-4 text-base text-green-700 stroke-black dark:text-gray-400">
+                <span className="mr-3 text-green-800 dark:text-blue-400 ">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"

@@ -42,7 +42,7 @@ function Header({ active }) {
               <img className="w-16" src="/WAUREM.png" />
             </Link>
             <div
-              class=" hidden absolute p-3 top-16 left-0 bg-gray-900 z-30 lg:relative justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+              class=" hidden absolute p-3 top-16 left-0 bg-gray-900 z-30 lg:static justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
               id="mobile-menu-2"
             >
               <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-4 lg:mt-0">

@@ -8,12 +8,14 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import Loading from '../Home/Loading'
 
 function Create() {
   const [title, setTitle] = useState("");
   const [tag, setTag] = useState("");
   const [body, setBody] = useState("");
   const [cover, setCover] = useState(null);
+  const [loading, setLoading] = useState(false);
   const storage = getStorage();
 
   const handleCoverChange = (e) => {
@@ -23,6 +25,7 @@ function Create() {
   };
   const sub = (e) => {
     e.preventDefault();
+    setLoading((loading) => !loading);
     const metadata = {
       contentType: "image/jpeg",
     };
@@ -74,6 +77,7 @@ function Create() {
             coverImg: downloadURL,
           })
             .then((docRef) => {
+              setLoading((loading) => !loading);
               alert("data added successfully ....");
             })
             .catch((err) => {
@@ -85,67 +89,75 @@ function Create() {
     );
   };
   return (
-    <div>
-      <form
-        onSubmit={(event) => {
-          sub(event);
-        }}
-      >
-        <input
-          className=" border-2 rounded-sm m-3 outline-none text-gray-700 p-2 text-xl"
-          type="text"
-          placeholder="Title"
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-          required
-        />
-        <input
-          className=" border-2 rounded-sm m-3 outline-none text-gray-700 p-2 text-xl"
-          type="text"
-          placeholder="Tag"
-          onChange={(e) => {
-            setTag(e.target.value);
-          }}
-          required
-        />
-        <div className=" text-gray-700 space-x-5 border-2 m-2 p-2">
-          <label>Select Cover Image</label>
-          <input type="file" accept="image/*" onChange={handleCoverChange} />
+    <>
+      { loading ? <Loading/> :
+        <div>
+          <form
+            onSubmit={(event) => {
+              sub(event);
+            }}
+          >
+            <input
+              className=" border-2 rounded-sm m-3 outline-none text-gray-700 p-2 text-xl"
+              type="text"
+              placeholder="Title"
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+              required
+            />
+            <input
+              className=" border-2 rounded-sm m-3 outline-none text-gray-700 p-2 text-xl"
+              type="text"
+              placeholder="Tag"
+              onChange={(e) => {
+                setTag(e.target.value);
+              }}
+              required
+            />
+            <div className=" text-gray-700 space-x-5 border-2 m-2 p-2">
+              <label>Select Cover Image</label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleCoverChange}
+              />
+            </div>
+
+            <Editor
+              apiKey="1ax7vfrgj9k7h2ao823latpr8h401p05dipcqkt6xxdyqu1f"
+              init={{
+                height: 400,
+                menubar: false,
+                plugins:
+                  "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss",
+                toolbar:
+                  "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+                tinycomments_mode: "embedded",
+                tinycomments_author: "Author name",
+                mergetags_list: [
+                  { value: "First.Name", title: "First Name" },
+                  { value: "Email", title: "Email" },
+                ],
+                ai_request: (request, respondWith) =>
+                  respondWith.string(() =>
+                    Promise.reject("See docs to implement AI Assistant")
+                  ),
+              }}
+              initialValue="Hey edit some text...."
+              onEditorChange={(newText) => setBody(newText)}
+            />
+
+            <button
+              className="bg-black px-5 py-2 tracking-wide uppercase m-2"
+              type="submit"
+            >
+              Submit
+            </button>
+          </form>
         </div>
-
-        <Editor
-          apiKey="1ax7vfrgj9k7h2ao823latpr8h401p05dipcqkt6xxdyqu1f"
-          init={{
-            height: 400,
-            menubar: false,
-            plugins:
-              "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss",
-            toolbar:
-              "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
-            tinycomments_mode: "embedded",
-            tinycomments_author: "Author name",
-            mergetags_list: [
-              { value: "First.Name", title: "First Name" },
-              { value: "Email", title: "Email" },
-            ],
-            ai_request: (request, respondWith) =>
-              respondWith.string(() =>
-                Promise.reject("See docs to implement AI Assistant")
-              ),
-          }}
-          initialValue="Hey edit some text...."
-          onEditorChange={(newText) => setBody(newText)}
-        />
-
-        <button
-          className="bg-black px-5 py-2 tracking-wide uppercase m-2"
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+      }
+    </>
   );
 }
 

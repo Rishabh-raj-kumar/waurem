@@ -20,7 +20,7 @@ function Header({ active }) {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("/auth/login");
+        navigate("/auth/signup");
         console.log("Signed out successfully");
         // toast.success("Success!", {
         //   position: toast.POSITION.BOTTOM_RIGHT,

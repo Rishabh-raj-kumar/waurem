@@ -17,10 +17,13 @@ function Header({ active }) {
   console.log(user);
 
   const handleLogout = () => {
+    
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("/auth/signup");
+        alert('signed out success');
+        location.reload()
+        navigate("/");
         console.log("Signed out successfully");
         // toast.success("Success!", {
         //   position: toast.POSITION.BOTTOM_RIGHT,
@@ -55,25 +58,26 @@ function Header({ active }) {
                 >
                   Home
                 </Link>
-                <Link
-                  to="/about"
-                  class={`block py-2 pr-4 pl-3 ${
-                    active === "about" ? "text-gray-100" : "text-gray-400"
-                  } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:px-3 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
-                  aria-current="page"
-                >
-                  About
-                </Link>
-                <Link
-                  to="/blogs"
-                  class={`block py-2 pr-4 pl-3 ${
-                    active === "blogs" ? "text-gray-100" : "text-gray-400"
-                  } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:px-3 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
-                >
-                  Blogs
-                </Link>
                 {user ? (
                   <>
+                    <Link
+                      to="/talks/community"
+                      class={`block py-2 pr-4 pl-3 ${
+                        active === "about" ? "text-gray-100" : "text-gray-400"
+                      } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:px-3 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
+                      aria-current="page"
+                    >
+                      community
+                    </Link>
+                    <Link
+                      to="/blogs"
+                      class={`block py-2 pr-4 pl-3 ${
+                        active === "blogs" ? "text-gray-100" : "text-gray-400"
+                      } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:px-3 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
+                    >
+                      Blogs
+                    </Link>
+
                     <Link
                       to="/create"
                       class={` block py-2 pr-4 pl-3 ${
@@ -129,6 +133,23 @@ function Header({ active }) {
                   </>
                 ) : (
                   <>
+                  <Link
+                      to="/about"
+                      class={`block py-2 pr-4 pl-3 ${
+                        active === "about" ? "text-gray-100" : "text-gray-400"
+                      } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:px-3 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
+                      aria-current="page"
+                    >
+                      about
+                    </Link>
+                    <Link
+                      to="/blogs"
+                      class={`block py-2 pr-4 pl-3 ${
+                        active === "blogs" ? "text-gray-100" : "text-gray-400"
+                      } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:px-3 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700`}
+                    >
+                      Blogs
+                    </Link>
                     <Link
                       to="/mission"
                       class={`block py-2 pr-4 pl-3 ${
@@ -193,24 +214,24 @@ function Header({ active }) {
                   </ul>
                 </div>
                 <svg
-                    xmlns="<http://www.w3.org/2000/svg>"
-                    id="menu-button"
-                    class="h-6 w-6 cursor-pointer md:hidden block"
-                    fill="white"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    onClick={() => {
-                      let hams = document.getElementById('mobile-menu-2');
-                      hams.classList.toggle('hidden');
-                    }}
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
+                  xmlns="<http://www.w3.org/2000/svg>"
+                  id="menu-button"
+                  class="h-6 w-6 cursor-pointer md:hidden block"
+                  fill="white"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  onClick={() => {
+                    let hams = document.getElementById("mobile-menu-2");
+                    hams.classList.toggle("hidden");
+                  }}
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
               </div>
             ) : (
               <div class="flex items-center lg:order-2">

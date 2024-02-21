@@ -27,11 +27,11 @@ function BlogView() {
     console.log(blog)
   }, []);
   return (
-    <div className=" text-black p-3">
+    <div className=" text-black p-1 font-openSans">
       {/* {console.log(blog)} */}
-      <h1>Title :  {blog.Title}</h1>
-      <p>Tag : <span className=" bg-purple-200 p-1 px-2 rounded-full text-purple-700">{blog.Tag}</span></p>
-      <img className=" w-full h-80 object-contain" src={blog.coverImg}/>
+      <h1 className=" text-xl my-2 capitalize font-medium">Title :  {blog.Title}</h1>
+      <p className=" text-lg my-2 capitalize font-medium">Tag : <span className=" bg-purple-200 text-sm p-1 px-2 rounded-full text-purple-700">{blog.Tag}</span></p>
+      <img className=" w-full h-80 object-contain rounded" src={blog.coverImg}/>
       <div dangerouslySetInnerHTML={{__html : blog.Body}}></div>
     </div>
   );

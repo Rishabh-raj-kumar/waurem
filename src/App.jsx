@@ -22,6 +22,7 @@ import Points from './Components/Info/Points'
 import Profile from './Components/Profile/Profile'
 import Loading from './Components/Home/Loading'
 import Tips from './Components/Info/Tips'
+import Community from './Components/Profile/Community'
 
 function App() { 
   const [user,setUser] = useState(null);
@@ -64,6 +65,7 @@ function App() {
          <Route path='create' element={<Create/>}/>
          <Route path='points' element={<Points/>}/>
          <Route path='profile' element={<Profile/>}/>
+         <Route path='/community/chat' element={<Community/>}/>
          <Route path='tips' element={<Tips/>}/>
          <Route path='/blog/:id' element={<BlogView/>}  />
          <Route path='/blog/edit/:id' element={<BlogEdit/>}  />

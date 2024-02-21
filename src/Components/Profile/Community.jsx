@@ -116,7 +116,7 @@ function Community() {
                 </div>
 
                 <div class="w-4/5 mt-4 ml-20 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
-                  <Link class=" underline text-blue-900" to={"/blog/foE1I0pioFEazo6FmOfx"}>How to make something  interesting from waste.</Link>
+                  <Link class=" underline text-blue-900" to={"/blog/F0SsWgRgofOWY8ICBYek"}>How to make something  interesting from waste.</Link>
                 </div>
               </div>
               <img

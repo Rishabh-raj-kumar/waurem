@@ -1,91 +1,133 @@
 import React, { useEffect, useRef, useState } from "react";
+import * as cocossd from "@tensorflow-models/coco-ssd";
+import * as tf from "@tensorflow/tfjs";
 import Webcam from "react-webcam";
-import * as ml5 from "ml5";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
 import { Link } from "react-router-dom";
 
-const dimensions = {
-  width: 500,
-  height: 300,
-};
 function Camera() {
-  const webcamRef = useRef();
-  const canvasRef = useRef();
-  const [tag, setTag] = useState(" ");
-  const [data, setData] = useState(null);
-  const [id, setId] = useState(null);
+  const webcamRef = useRef(null);
+  const canvasRef = useRef(null);
 
-  useEffect(() => {}, []);
+  const [data,setData] = useState(null)
+  const [id,setId] = useState(null) 
 
-  React.useEffect(() => {
-    let detectionInterval;
-    const ctx = canvasRef.current.getContext("2d");
+  // Main function
+  const runCoco = async () => {
+    const net = await cocossd.load();
+    console.log("Handpose model loaded.");
+    //  Loop and detect hands
+    setInterval(() => {
+      detect(net);
+    }, 10);
+  };
 
-    // 1. Once the model has loaded, update the dimensions run the model's detection interval
-    const modelLoaded = () => {
-      const { width, height } = dimensions;
-      webcamRef.current.video.width = width;
-      webcamRef.current.video.height = height;
-      canvasRef.current.width = width;
-      canvasRef.current.height = height;
-      detectionInterval = setInterval(() => {
-        detect();
-      }, 200);
-    };
+  const detect = async (net) => {
+    // Check data is available
+    if (
+      typeof webcamRef.current !== "undefined" &&
+      webcamRef.current !== null &&
+      webcamRef.current.video.readyState === 4
+    ) {
+      // Get Video Properties
+      const video = webcamRef.current.video;
+      const videoWidth = webcamRef.current.video.videoWidth;
+      const videoHeight = webcamRef.current.video.videoHeight;
 
-    const objectDetector = ml5.objectDetector("cocossd", modelLoaded);
+      // Set video width
+      webcamRef.current.video.width = videoWidth;
+      webcamRef.current.video.height = videoHeight;
 
-    const detect = () => {
-      if (webcamRef.current) {
-        if (webcamRef.current.video.readyState !== 4) {
-          console.warn("Video not ready yet");
-          return;
-        }
-        objectDetector.detect(webcamRef.current.video, (err, results) => {
-          const { width, height } = dimensions;
-          ctx.clearRect(0, 0, width, height);
-          if (results && results.length) {
-            results.forEach((detection) => {
-              ctx.beginPath();
-              ctx.fillStyle = "#FF0000";
-              const { label, x, y, width, height } = detection;
-              ctx.fillText(label, x, y - 5);
-              ctx.rect(x, y, width / 2, height / 2);
-              ctx.stroke();
-              setTag(label);
-              async function gets() {
-                const stateQuery = query(
-                  collection(db, "blogs"),
-                  where("Tag", "==", tag.toLowerCase())
-                );
-                const querySnapshot = await getDocs(stateQuery);
-                querySnapshot.forEach((doc) => {
-                  // doc.data() is never undefined for query doc snapshots
-                  console.log(doc.id, " => ", doc.data());
-                  setData(doc.data());
-                  setId(doc.id);
-                });
-              }
-              gets();
-              // console.log(label)
-            });
-          }
+      // Set canvas height and width
+      canvasRef.current.width = videoWidth;
+      canvasRef.current.height = videoHeight;
+
+      // Make Detections
+      const obj = await net.detect(video);
+
+      // Draw mesh
+      const ctx = canvasRef.current.getContext("2d");
+      drawRect(obj, ctx);
+    }
+  };
+  const drawRect = (detections, ctx) => {
+    // Loop through each prediction
+    detections.forEach((prediction) => {
+      // Extract boxes and classes
+      const [x, y, width, height] = prediction["bbox"];
+      const text = prediction["class"];
+
+      // Set styling
+      const color = Math.floor(Math.random() * 16777215).toString(16);
+      ctx.strokeStyle = "#" + color;
+      ctx.font = "18px Arial";
+
+      // Draw rectangles and text
+      ctx.beginPath();
+      ctx.fillStyle = "#" + color;
+      ctx.fillText(text, x, y);
+      ctx.rect(x, y, width, height);
+      ctx.stroke();
+
+      async function gets() {
+        const blogsRef = collection(db, "blogs");
+
+        // Create a query against the collection.
+        const q = query(blogsRef, where("Tag", "==", text.toLowerCase()));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+          setId(doc.id)
+          setData(doc.data())
         });
+        // console.log(q);
       }
-    };
+      gets();
+    });
+  };
 
-    return () => {
-      if (detectionInterval) {
-        clearInterval(detectionInterval);
-      }
-    };
-  }, [tag]);
+  useEffect(() => {
+    runCoco();
+  }, []);
+
   return (
     <div className=" w-full h-screen flex items-center gap-3">
       <div className=" relative">
-        <Webcam ref={webcamRef} className=" absolute" />
-        <canvas ref={canvasRef} className=" relative" />
+        <Webcam
+          ref={webcamRef}
+          muted={true}
+          id="img"
+          className=" w-[600px] h-[600px]"
+          // style={{
+          //   position: "absolute",
+          //   marginLeft: "auto",
+          //   marginRight: "auto",
+          //   left: 0,
+          //   right: 0,
+          //   textAlign: "center",
+          //   zindex: 9,
+          //   width: 640,
+          //   height: 480,
+          // }}
+        />
+
+        <canvas
+          ref={canvasRef}
+          className=" absolute w-[600px] h-[400px] top-20"
+          // style={{
+          //   position: "absolute",
+          //   marginLeft: "auto",
+          //   marginRight: "auto",
+          //   left: 0,
+          //   right: 0,
+          //   textAlign: "center",
+          //   zindex: 8,
+          //   width: 640,
+          //   height: 480,
+          // }}
+        />
       </div>
       {data !== null ? (
         <div className=" border-2 h-max text-black flex gap-2 items-center">
@@ -96,8 +138,9 @@ function Camera() {
           </Link>
         </div>
       ) : null}
-        <button className=" bg-red-600 text-white p-3">
-        <Link to={"/"}> close camera</Link></button>
+      <button className=" bg-red-600 text-white p-3">
+        <Link to={"/"}> close camera</Link>
+      </button>
     </div>
   );
 }

@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@react-firebase/auth": "^0.2.10",
+    "@tensorflow-models/coco-ssd": "^2.2.3",
+    "@tensorflow/tfjs": "^4.17.0",
     "@tinymce/tinymce-react": "^4.3.2",
     "axios": "^1.6.7",
     "firebase": "^10.8.0",
@@ -35,5 +37,17 @@
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

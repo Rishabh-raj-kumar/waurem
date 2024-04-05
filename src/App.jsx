@@ -39,8 +39,7 @@ function App() {
   // },[user])
 
   useEffect(() =>{
-    // const users = auth.currentUser;
-    // console.log(users)
+
 
     auth.onAuthStateChanged(users => {
         if(users){

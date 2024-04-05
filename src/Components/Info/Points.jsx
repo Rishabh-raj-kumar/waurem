@@ -5,75 +5,95 @@ import Footer from "../Footer";
 function Points() {
   return (
     <>
-    <Header/>
-    <div className=" min-h-screen">
-      <div class="bg-white shadow-md rounded-md p-4 mx-auto max-w-sm mt-16">
-        <h2 class="text-xl font-semibold mb-4">Top Users</h2>
-        <ul>
-          <li class="flex items-center justify-between py-2 border-b border-gray-300">
-            <div class="flex items-center">
-              <span class="text-lg font-semibold mr-4">1</span>
-              <img
-                src="https://via.placeholder.com/48"
-                alt="User Avatar"
-                class="w-8 h-8 rounded-full mr-4"
-              />
-              <span class="text-gray-800 font-semibold">John Doe</span>
+      <Header />
+      <div class="flex flex-col bg-slate-900">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+              <table class="min-w-full text-left text-sm font-light text-surface dark:text-white">
+                <thead class="border-b border-neutral-200 font-medium dark:border-white/10">
+                  <tr>
+                    <th scope="col" class="px-6 py-4">
+                      #
+                    </th>
+                    <th scope="col" class="px-6 py-4">
+                      User
+                    </th>
+                    <th scope="col" class="px-6 py-4">
+                      FullName
+                    </th>
+                    <th scope="col" class="px-6 py-4">
+                      Points
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-neutral-200 dark:border-white/10">
+                    <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                    <img
+                      src="https://media.istockphoto.com/id/1298261537/vector/blank-man-profile-head-icon-placeholder.jpg?s=612x612&w=0&k=20&c=CeT1RVWZzQDay4t54ookMaFsdi7ZHVFg2Y5v7hxigCA="
+                      alt="User Avatar"
+                      class="w-8 h-8 mt-2 rounded-full mr-4"
+                    />
+                    <td class="whitespace-nowrap px-6 py-4">Otto</td>
+                    <td class="whitespace-nowrap px-6 py-4">1000</td>
+                  </tr>
+                  <tr class="border-b border-neutral-200 dark:border-white/10">
+                    <td class="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                    <img
+                      src="https://media.istockphoto.com/id/1298261537/vector/blank-man-profile-head-icon-placeholder.jpg?s=612x612&w=0&k=20&c=CeT1RVWZzQDay4t54ookMaFsdi7ZHVFg2Y5v7hxigCA="
+                      alt="User Avatar"
+                      class="w-8 h-8 mt-2 rounded-full mr-4"
+                    />
+                    <td class="whitespace-nowrap px-6 py-4">Thornton</td>
+                    <td class="whitespace-nowrap px-6 py-4">600</td>
+                  </tr>
+                  <tr class="border-b border-neutral-200 dark:border-white/10">
+                    <td class="whitespace-nowrap px-6 py-4 font-medium">3</td>
+                    <img
+                      src="https://media.istockphoto.com/id/1298261537/vector/blank-man-profile-head-icon-placeholder.jpg?s=612x612&w=0&k=20&c=CeT1RVWZzQDay4t54ookMaFsdi7ZHVFg2Y5v7hxigCA="
+                      alt="User Avatar"
+                      class="w-8 h-8 mt-2 rounded-full mr-4"
+                    />
+                    <td class="whitespace-nowrap px-6 py-4">Wild</td>
+                    <td class="whitespace-nowrap px-6 py-4">400</td>
+                  </tr>
+                  <tr class="border-b border-neutral-200 dark:border-white/10">
+                    <td class="whitespace-nowrap px-6 py-4 font-medium">4</td>
+                    <img
+                      src="https://media.istockphoto.com/id/1298261537/vector/blank-man-profile-head-icon-placeholder.jpg?s=612x612&w=0&k=20&c=CeT1RVWZzQDay4t54ookMaFsdi7ZHVFg2Y5v7hxigCA="
+                      alt="User Avatar"
+                      class="w-8 h-8 mt-2 rounded-full mr-4"
+                    />
+                    <td class="whitespace-nowrap px-6 py-4">Motto</td>
+                    <td class="whitespace-nowrap px-6 py-4">300</td>
+                  </tr>
+                  <tr class="border-b border-neutral-200 dark:border-white/10">
+                    <td class="whitespace-nowrap px-6 py-4 font-medium">5</td>
+                    <img
+                      src="https://media.istockphoto.com/id/1298261537/vector/blank-man-profile-head-icon-placeholder.jpg?s=612x612&w=0&k=20&c=CeT1RVWZzQDay4t54ookMaFsdi7ZHVFg2Y5v7hxigCA="
+                      alt="User Avatar"
+                      class="w-8 h-8 mt-2 rounded-full mr-4"
+                    />
+                    <td class="whitespace-nowrap px-6 py-4">Trenti</td>
+                    <td class="whitespace-nowrap px-6 py-4">100</td>
+                  </tr>
+                  <tr class="border-b border-neutral-200 dark:border-white/10">
+                    <td class="whitespace-nowrap px-6 py-4 font-medium">6</td>
+                    <img
+                      src="https://media.istockphoto.com/id/1298261537/vector/blank-man-profile-head-icon-placeholder.jpg?s=612x612&w=0&k=20&c=CeT1RVWZzQDay4t54ookMaFsdi7ZHVFg2Y5v7hxigCA="
+                      alt="User Avatar"
+                      class="w-8 h-8 mt-2 rounded-full mr-4"
+                    />
+                    <td class="whitespace-nowrap px-6 py-4">Missav</td>
+                    <td class="whitespace-nowrap px-6 py-4">100</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <span class="text-green-500 font-semibold">1000 Points</span>
-          </li>
-          <li class="flex items-center justify-between py-2 border-b border-gray-300">
-            <div class="flex items-center">
-              <span class="text-lg font-semibold mr-4">2</span>
-              <img
-                src="https://via.placeholder.com/48"
-                alt="User Avatar"
-                class="w-8 h-8 rounded-full mr-4"
-              />
-              <span class="text-gray-800 font-semibold">Jane Doe</span>
-            </div>
-            <span class="text-green-500 font-semibold">950 Points</span>
-          </li>
-          <li class="flex items-center justify-between py-2 border-b border-gray-300">
-            <div class="flex items-center">
-              <span class="text-lg font-semibold mr-4">3</span>
-              <img
-                src="https://via.placeholder.com/48"
-                alt="User Avatar"
-                class="w-8 h-8 rounded-full mr-4"
-              />
-              <span class="text-gray-800 font-semibold">Bob Smith</span>
-            </div>
-            <span class="text-green-500 font-semibold">850 Points</span>
-          </li>
-          <li class="flex items-center justify-between py-2 border-b border-gray-300">
-            <div class="flex items-center">
-              <span class="text-lg font-semibold mr-4">4</span>
-              <img
-                src="https://via.placeholder.com/48"
-                alt="User Avatar"
-                class="w-8 h-8 rounded-full mr-4"
-              />
-              <span class="text-gray-800 font-semibold">Alice Smith</span>
-            </div>
-            <span class="text-green-500 font-semibold">800 Points</span>
-          </li>
-          <li class="flex items-center justify-between py-2">
-            <div class="flex items-center">
-              <span class="text-lg font-semibold mr-4">5</span>
-              <img
-                src="https://via.placeholder.com/48"
-                alt="User Avatar"
-                class="w-8 h-8 rounded-full mr-4"
-              />
-              <span class="text-gray-800 font-semibold">Joe Johnson</span>
-            </div>
-            <span class="text-green-500 font-semibold">750 Points</span>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
-      </div>
-      <Footer/>
     </>
   );
 }

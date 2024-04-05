@@ -15,3 +15,5 @@ Preview of app and its feature:
 <h2>Blog page preview and ideas.</h2>
 
 ![Screenshot 2024-02-28 231318](https://github.com/Rishabh-raj-kumar/wastemanageFrontend/assets/108469021/5c86f040-1aeb-47b6-9b56-69998a9efdb6)
+
+

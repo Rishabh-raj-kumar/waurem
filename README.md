@@ -10,23 +10,17 @@ Waurem empowers individuals and communities to tackle waste management through a
 - *User Accounts and Community (Future):* Build a secure user authentication system to track points, access exclusive features, and interact with other users in a chatroom or community forum (planned for future implementation).
 
 *Getting Started:*
-
-1. *Prerequisites:*
-    - Python 3.x ([https://www.python.org/downloads/](https://www.python.org/downloads/))
-    - Necessary libraries (specified in requirements.txt)
-    - A camera ([Optional] If deploying for real-time detection)
-2. *Installation:*
+1. *Installation:*
     bash
-    git clone https://github.com/<your-username>/waurem.git
+    git clone https://github.com/rishabh-raj-kumar/waurem.git
     cd waurem
     pip install -r requirements.txt
     
-3. *Usage:*
+2. *Usage:*
     - *Model Training:* (If applicable, depending on your chosen object detection model)
         Instructions specific to your chosen model will be provided here. Consider including links to the model's documentation.
     - *Running the Application:*
         bash
-        python main.py
         
         This command will typically launch the user interface. Refer to any additional configuration options documented within the code.
 
@@ -77,17 +71,7 @@ Waurem is licensed under the MIT License: [https://opensource.org/licenses/MIT](
 *Example:*
 
 
-## Dataset
-
-The waste detection model was trained on the [WasteDetection Dataset](https://example.com/waste-detection-dataset) containing images of various waste items categorized for proper disposal.
 
 ## Performance
 
 The model achieved an average precision of X% on the test set, demonstrating its effectiveness in identifying waste objects.
-
-
-*Remember:*
-
-- Replace placeholders like <your-username> and https://example.com/waste-detection-dataset with your specific details.
-- Adapt the instructions and information to precisely match your project's implementation.
-- Consider adding badges (e.g., for Python version, license) using online services like [https://shields.io/](https://shields.io/).

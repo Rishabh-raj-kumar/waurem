@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getDatabase, ref, set } from "firebase/database";
+import { addDoc,collection,Timestamp } from "firebase/firestore";
 import { db } from "../../../firebaseConfig";
+import { v4 as uuidv4 } from 'uuid';
 
 function Form({ title,setTitle,description, setDescription }) {
   const [name,setName] = useState(null);
@@ -28,7 +29,9 @@ function Form({ title,setTitle,description, setDescription }) {
       description : description,
       created: Timestamp.now(),
     });
-    
+    alert("Your query has been submitted successfully!");
+    // location.reload()
+
   }
   return (
     <>

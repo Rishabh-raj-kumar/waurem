@@ -8,8 +8,6 @@ function UserChat() {
   return (
     <div>
         <Form title={title} setTitle={setTitle} description={description} setDescription={setDescription}/>
-        <p>{title}</p>
-        <h1>{description}</h1>
     </div>
   )
 }

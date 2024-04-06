@@ -295,12 +295,9 @@ function Home() {
         </section>
         <div className=" flex flex-wrap justify-between gap-4 m-3 p-3 mx-9">
           {blogslist.map((blog) => (
-<<<<<<< HEAD
-            <article class="flex w-[380px] h-[200px] bg-white transition hover:shadow-xl border p-1 shadow">
-=======
-            <article class="flex w-[380px] h-[200px] bg-white transition shadow-2xl hover:shadow-xl border p-1 shadow">
 
->>>>>>> aae7f4c026c4fa2344ccdd55c51cbc542f2a2106
+            <article class="flex w-[380px] h-[200px] bg-white transition hover:shadow-xl border p-1 shadow">
+
               <div class="hidden sm:block sm:basis-40">
                 <img
                   alt=""

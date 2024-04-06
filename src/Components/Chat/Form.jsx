@@ -32,6 +32,9 @@ function Form({ title,setTitle,description, setDescription }) {
     alert("Your query has been submitted successfully!");
     // location.reload()
 
+    setTitle('')
+    setDescription('')
+
   }
   return (
     <>

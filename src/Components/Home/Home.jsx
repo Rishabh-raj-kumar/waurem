@@ -4,10 +4,27 @@ import { Link } from "react-router-dom";
 import { db } from "../../../firebaseConfig";
 // import Chatbot from "./chatbot";
 // import Chat from "./chatbot";
-import Chatbot from './chatbot';
+import Chatbot from "./chatbot";
+import axios from "axios";
+// import ChatGPT from "./chatgpt";
 
 function Home() {
   const [blogslist, setblogs] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await axios({
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      })
+        .get("http://localhost:8080/profile")
+        .then((res) => console.log(res));
+    }
+    fetchData();
+  }, []);
 
   useEffect(() => {
     // Subscribe to query with onSnapshot
@@ -276,7 +293,6 @@ function Home() {
         <div className=" flex flex-wrap justify-between gap-4 m-3 p-3">
           {blogslist.map((blog) => (
             <article class="flex w-[380px] h-[200px] bg-white transition hover:shadow-xl border p-1 shadow">
-
               <div class="hidden sm:block sm:basis-40">
                 <img
                   alt=""
@@ -651,7 +667,8 @@ function Home() {
             </Link>
           </p>
         </section>
-        <Chatbot/>
+        <Chatbot />
+        {/* <ChatGPT/> */}
       </main>
     </>
   );

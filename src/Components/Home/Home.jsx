@@ -276,16 +276,6 @@ function Home() {
         <div className=" flex flex-wrap justify-between gap-4 m-3 p-3">
           {blogslist.map((blog) => (
             <article class="flex w-[380px] h-[200px] bg-white transition hover:shadow-xl border p-1 shadow">
-              <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
-                <time
-                  datetime="2022-10-10"
-                  class="flex items-center justify-between gap-4 text-xs font-bold uppercase text-gray-900"
-                >
-                  <span>2022</span>
-                  <span class="w-px flex-1 bg-gray-900/10"></span>
-                  <span>Oct 10</span>
-                </time>
-              </div>
 
               <div class="hidden sm:block sm:basis-40">
                 <img

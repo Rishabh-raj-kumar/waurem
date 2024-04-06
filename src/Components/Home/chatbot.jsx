@@ -70,9 +70,6 @@ function Chatbot() {
 		<div className="Chatbot">
 			<ThemeProvider theme={theme}>
 				<ChatBot
-
-					// This Chatbotears as the header
-					// text for the chat bot
 					headerTitle="WauremBot"
                     speechSynthesis={{ enable: true, lang: 'en' }}
 					steps={steps}

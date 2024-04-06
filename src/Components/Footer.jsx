@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 function Footer() {
   const navigate = useNavigate()
   return (
-    <footer class="bg-gray-500 text-center dark:bg-secondary-600">
+    <footer class="bg-blue-500 text-center dark:bg-secondary-600">
       <div class="container px-6 pt-6">
     <div class="mb-6 flex justify-center">
       <a
@@ -142,16 +142,6 @@ function Footer() {
             </div>
           </div>
         </form>
-      </div>
-
-      <div class="bg-gray-800 p-4 text-center text-secondary-700 dark:bg-secondary-700 dark:text-secondary-200">
-        © 2024 Copyright:
-        <a
-          class="text-secondary-800 dark:text-secondary-400"
-          href="#"
-        >
-          WAUREM
-        </a>
       </div>
     </footer>
   );

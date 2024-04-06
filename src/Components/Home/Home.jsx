@@ -1,7 +1,10 @@
-import { collection, getDocs, onSnapshot } from "firebase/firestore";
+import { collection, endAt, getDocs, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../../../firebaseConfig";
+// import Chatbot from "./chatbot";
+// import Chat from "./chatbot";
+import Chatbot from './chatbot';
 
 function Home() {
   const [blogslist, setblogs] = useState([]);
@@ -24,7 +27,7 @@ function Home() {
   }, []);
   return (
     <>
-      <section class="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40">
+      <section class="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40 font-Poppins">
         <div class="relative z-10">
           <div class="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
             <svg
@@ -104,14 +107,14 @@ function Home() {
         <section id="features" class="py-10 lg:pb-8 lg:pt-20">
           <div class="container mx-auto text-center">
             <h2 class="text-3xl lg:text-5xl font-semibold">Main Features</h2>
-            </div>
+          </div>
         </section>
-        <section>
+        <section className=" font-Poppins">
           <div class="py-16">
             <div class="mx-auto px-6 max-w-6xl text-gray-500">
               <div class="relative">
                 <div class="relative z-10 grid gap-3 grid-cols-6">
-                  <div class="col-span-full lg:col-span-2 overflow-hidden flex relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+                  <div class="col-span-full lg:col-span-2 overflow-hidden flex relative p-8 rounded-xl bg-white border-2 border-gray-200 dark:border-gray-800 dark:bg-gray-900">
                     <div class="size-fit m-auto relative">
                       <div class="relative h-24 w-56 flex items-center">
                         <svg
@@ -134,42 +137,43 @@ function Home() {
                       </h2>
                     </div>
                   </div>
-                  <div class="col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+                  <div class="col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative p-8 rounded-xl bg-white border-2 border-gray-200 dark:border-gray-800 dark:bg-gray-900">
                     <div>
                       <div class="relative aspect-square rounded-full size-44 flex border mx-auto dark:bg-white/5 dark:border-white/10 before:absolute before:-inset-2 before:border dark:before:border-white/5 dark:before:bg-white/5 before:rounded-full">
-                        
-                          <img src="https://recycleye.com/wp-content/uploads/2023/04/Vision-System.png" className=" w-80"/>
+                        <img
+                          src="https://recycleye.com/wp-content/uploads/2023/04/Vision-System.png"
+                          className=" w-80"
+                        />
                       </div>
                       <div class="mt-6 text-center relative z-10 space-y-2">
-                        
                         <p class="dark:text-gray-300 text-gray-700">
-                        Powerful AI identifies waste and suggests reuse ideas
+                          Powerful AI identifies waste and suggests reuse ideas
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+                  <div class="col-span-full sm:col-span-3 lg:col-span-2 overflow-hidden relative p-8 rounded-xl bg-white border-2 border-gray-200 dark:border-gray-800 dark:bg-gray-900">
                     <div>
                       <div class="pt-6 lg:px-6">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEXcERZO93GCdqXR21-9gUh9nIwOj6bP0v0i4LJ12ooA&s"/>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEXcERZO93GCdqXR21-9gUh9nIwOj6bP0v0i4LJ12ooA&s" />
                       </div>
                       <div class="mt-14 text-center relative z-10 space-y-2">
-                       
                         <p class="dark:text-gray-300 text-gray-700">
-                        Connect with other waste warriors and share ideas
+                          Connect with other waste warriors and share ideas
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+                  <div class="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border-2 border-gray-200 dark:border-gray-800 dark:bg-gray-900">
                     <div class="grid sm:grid-cols-2">
                       <div class="flex flex-col justify-between relative z-10 space-y-12 lg:space-y-6">
                         <div class="relative aspect-square rounded-full size-12 flex border dark:bg-white/5 dark:border-white/10 before:absolute before:-inset-2 before:border dark:before:border-white/5 dark:before:bg-white/5 before:rounded-full">
-                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAfWW2Rf6OFzuAeiYIfPMvjVJFEWdOTgTH776qMcA6bA&s"/>
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAfWW2Rf6OFzuAeiYIfPMvjVJFEWdOTgTH776qMcA6bA&s" />
                         </div>
                         <div class="space-y-2">
                           <h2 class="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">
-                          Earn points for reducing and reusing, redeem for rewards
+                            Earn points for reducing and reusing, redeem for
+                            rewards
                           </h2>
                           {/* <p class="dark:text-gray-300 text-gray-700">
                             Provident fugit vero voluptate. Voluptates a
@@ -183,12 +187,11 @@ function Home() {
                           <span class="block size-2 rounded-full border dark:border-white/10 dark:bg-white/10"></span>
                           <span class="block size-2 rounded-full border dark:border-white/10 dark:bg-white/10"></span>
                         </div>
-                        <img src="https://img.freepik.com/free-vector/detailed-point-exchange_23-2148845560.jpg"
-                        />
+                        <img src="https://img.freepik.com/free-vector/detailed-point-exchange_23-2148845560.jpg" />
                       </div>
                     </div>
                   </div>
-                  <div class="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-800 dark:bg-gray-900">
+                  <div class="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border-2 border-gray-200 dark:border-gray-800 dark:bg-gray-900">
                     <div class="h-full grid sm:grid-cols-2">
                       <div class="flex flex-col justify-between relative z-10 space-y-12 lg:space-y-6">
                         <div class="relative aspect-square rounded-full size-12 flex border dark:bg-white/5 dark:border-white/10 before:absolute before:-inset-2 before:border dark:before:border-white/5 dark:before:bg-white/5 before:rounded-full">
@@ -218,7 +221,8 @@ function Home() {
                             Keep connected with others
                           </h2>
                           <p class="dark:text-gray-300 text-gray-700">
-                            Ask questions regarding waste products and envolve in community engagement.
+                            Ask questions regarding waste products and envolve
+                            in community engagement.
                           </p>
                         </div>
                       </div>
@@ -269,9 +273,9 @@ function Home() {
             </div>
           </div>
         </section>
-        <div className=" flex flex-wrap gap-3 m-3 p-3">
+        <div className=" flex flex-wrap justify-between gap-4 m-3 p-3">
           {blogslist.map((blog) => (
-            <article class="flex w-[400px] h-[200px] bg-white transition hover:shadow-xl">
+            <article class="flex w-[380px] h-[200px] bg-white transition hover:shadow-xl border p-1 shadow">
               <div class="rotate-180 p-2 [writing-mode:_vertical-lr]">
                 <time
                   datetime="2022-10-10"
@@ -286,18 +290,18 @@ function Home() {
               <div class="hidden sm:block sm:basis-40">
                 <img
                   alt=""
-                 src={blog.coverImg}
+                  src={blog.coverImg}
                   class="aspect-square h-full w-full object-cover"
                 />
               </div>
 
               <div class="flex flex-1 flex-col justify-between">
                 <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                  <a href="#">
-                  {blog.Title}
-                  </a>
+                  <a href="#">{blog.Title}</a>
 
-                  <p className="bg-purple-200 p-1 px-2 uppercase text-sm rounded-full text-purple-700 mb-3 w-max mt-3">{blog.Tag}</p>
+                  <p className="bg-purple-200 p-1 px-2 uppercase text-sm rounded-full text-purple-700 mb-3 w-max mt-3">
+                    {blog.Tag}
+                  </p>
                 </div>
 
                 <div class="sm:flex sm:items-end sm:justify-end">
@@ -313,7 +317,7 @@ function Home() {
           ))}
         </div>
 
-        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 font-Poppins">
           <div class="grid md:grid-cols-2 gap-4 md:gap-8 xl:gap-20 md:items-center">
             <div>
               <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-5xl lg:leading-tight dark:text-white">
@@ -657,6 +661,7 @@ function Home() {
             </Link>
           </p>
         </section>
+        <Chatbot/>
       </main>
     </>
   );

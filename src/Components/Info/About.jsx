@@ -1,13 +1,14 @@
 import React from "react";
 import Footer from "../Footer";
 import Header from "../Header";
+import { ZerosLike } from "@tensorflow/tfjs";
 
 function About() {
   return (
     <>
     <Header active={"about"}/>
     <section className="flex items-center xl:min-h-screen font-poppins dark:bg-gray-800 "
-    style={{backgroundImage : "url('/bg_greeen.jpg')"}}>
+    style={{backgroundImage : "url('/bg2.jpg')"}}>
       <div className="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
         <div className="px-4 mb-10 md:text-center md:mb-20">
           <p className="mb-2 text-lg font-semibold text-blue-500 dark:text-gray-400">
@@ -127,3 +128,4 @@ function About() {
 }
 
 export default About;
+

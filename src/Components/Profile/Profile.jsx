@@ -28,7 +28,7 @@ function Profile() {
     <Header/>
     <section
       class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover"
-      style={{backgroundImage:"url('https://source.unsplash.com/1L71sPT5XKc')"}}
+      style={{backgroundImage:"url('bg1.jpg')"}}
     >
       <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto lg:my-0">
         <div

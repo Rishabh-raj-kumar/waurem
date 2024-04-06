@@ -45,21 +45,21 @@ const Bloglist = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className=" text-black p-3 font-openSans">
-          <h2 className="w-full text-center font-bold text-xl  underline">
-            All blogs List
+        <div className=" text-black p-3 font-openSans my-5">
+          <h2 className="w-full text-center font-bold text-4xl text-green-600 ">
+            BLOGS
           </h2>
 
-          <div className=" flex flex-wrap gap-2 mt-3">
+          <div className=" flex flex-wrap gap-6 mt-5 mb-5">
             {blogslist.map((blog) => (
-              <div key={blog.id} className=" border-2 rounded-md p-3 flex flex-col items-center shadow-xl">
-                <img className=" w-64 h-40 object-cover rounded-md" src={blog.coverImg} />
-                <h1 className=" text-md font-Poppins font-medium">Title : {blog.Title}</h1>
-                <span className="bg-purple-200 p-1 px-2 uppercase text-sm rounded-full text-purple-700 mb-3">{blog.Tag}</span>
+              <div key={blog.id} className=" border-2 rounded-md p-3 flex flex-col items-center shadow-2xl text-green-600 " style={{ width: 'calc(33% - 1rem)' }}>
+                <img className=" w-64 h-56 object-cover rounded-md" src={blog.coverImg} />
+                <h1 className=" text-md font-Poppins font-medium my-2 ">Title : {blog.Title}</h1>
+                <span className="bg-gray-200 p-1 px-2 uppercase text-sm rounded-full text-gray-700 mb-3">{blog.Tag}</span>
                 <div className=" flex gap-1">
                 <Link
                   to={"/blog/" + blog.id}
-                  class=" font-Poppins mr-2 bg-blue-600 hover:bg-blue-800 text-white font-medium py-1 px-4 border border-indigo-500 rounded"
+                  class=" font-georgia mr-2 bg-blue-600 hover:bg-blue-800 text-white font-medium py-1 px-4 border border-indigo-500 rounded"
                 >
                   View
                 </Link>

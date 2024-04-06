@@ -110,6 +110,9 @@ function Home() {
                 </Link>
               </button>
             </div>
+            <h2 class = "mt-2 text-lg leading-8 text-gray-600">
+              Unlock your camera to easily and accurately <span class = "font-bold">scan the waste</span>
+            </h2>
           </div>
           <div class="relative mx-auto mt-10 max-w-lg">
             <img
@@ -121,7 +124,7 @@ function Home() {
         </div>
       </section>
       <main class="text-gray-900">
-        <section id="features" class="py-10 lg:pb-8 lg:pt-20">
+        <section id="features" class="py-10 lg:pb-8 lg:pt-1">
           <div class="container mx-auto text-center">
             <h2 class="text-3xl lg:text-5xl font-semibold">Main Features</h2>
           </div>
@@ -290,9 +293,14 @@ function Home() {
             </div>
           </div>
         </section>
-        <div className=" flex flex-wrap justify-between gap-4 m-3 p-3">
+        <div className=" flex flex-wrap justify-between gap-4 m-3 p-3 mx-9">
           {blogslist.map((blog) => (
+<<<<<<< HEAD
             <article class="flex w-[380px] h-[200px] bg-white transition hover:shadow-xl border p-1 shadow">
+=======
+            <article class="flex w-[380px] h-[200px] bg-white transition shadow-2xl hover:shadow-xl border p-1 shadow">
+
+>>>>>>> aae7f4c026c4fa2344ccdd55c51cbc542f2a2106
               <div class="hidden sm:block sm:basis-40">
                 <img
                   alt=""
@@ -302,10 +310,10 @@ function Home() {
               </div>
 
               <div class="flex flex-1 flex-col justify-between">
-                <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
+                <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6 text-green-600">
                   <a href="#">{blog.Title}</a>
 
-                  <p className="bg-purple-200 p-1 px-2 uppercase text-sm rounded-full text-purple-700 mb-3 w-max mt-3">
+                  <p className="bg-gray-200 p-1 px-2 uppercase text-sm rounded-full text-black mb-3 w-max mt-3">
                     {blog.Tag}
                   </p>
                 </div>

@@ -23,6 +23,8 @@ import Profile from './Components/Profile/Profile'
 import Loading from './Components/Home/Loading'
 import Tips from './Components/Info/Tips'
 import Community from './Components/Profile/Community'
+import Chat from './Components/Chat/Chat'
+import UserChat from './Components/Chat/UserChat'
 
 function App() { 
   const [user,setUser] = useState(null);
@@ -64,7 +66,8 @@ function App() {
          <Route path='create' element={<Create/>}/>
          <Route path='points' element={<Points/>}/>
          <Route path='profile' element={<Profile/>}/>
-         <Route path='/community/chat' element={<Community/>}/>
+         <Route path='/community' element={<Chat/>}/>
+         <Route path='/community/create' element={<UserChat/>}/>
          <Route path='tips' element={<Tips/>}/>
          <Route path='/blog/:id' element={<BlogView/>}  />
          <Route path='/blog/edit/:id' element={<BlogEdit/>}  />

@@ -8,8 +8,10 @@ import Chatbot from "./chatbot";
 import axios from "axios";
 import Faq from "./Faq";
 // import ChatGPT from "./chatgpt";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   const [blogslist, setblogs] = useState([]);
   const [user, setUser] = useState(null);
 
@@ -294,7 +296,7 @@ function Home() {
             </div>
           </div>
         </section>
-        <div className=" flex flex-wrap justify-between gap-4 m-3 p-3 mx-9">
+        <div className=" flex flex-wrap justify-center gap-4 m-3 p-3 mx-9">
           {blogslist.map((blog) => (
 
             <article class="flex w-[380px] h-[200px] bg-white transition hover:shadow-xl border p-1 shadow">
@@ -364,6 +366,7 @@ function Home() {
                 <a
                   class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                   href="#"
+                  onClick={() => {navigate('/contact')}}
                 >
                   Contact Us
                 </a>

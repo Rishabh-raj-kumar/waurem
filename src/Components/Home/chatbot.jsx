@@ -78,7 +78,6 @@ function Chatbot() {
 			<ThemeProvider theme={theme}>
 				<ChatBot
 					headerTitle="WauremBot"
-                    speechSynthesis={{ enable: true, lang: 'en' }}
 					steps={steps}
 					{...config}
 

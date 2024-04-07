@@ -33,6 +33,13 @@ const steps = [
 		// Here we want the user
 		// to enter input
 		user : true,
+		trigger: '4',
+	},{
+		id: '4',
+
+		// Here we want the user
+		// to enter input
+		message : "Yes here are the things you can go through.",
 		trigger: '5',
 	}, {
 		id: '5',

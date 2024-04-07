@@ -2,7 +2,7 @@ import './App.css'
 import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
 import Layout from './Components/Layout'
 import Blogs from './Components/Blogs/Blogs'
-import Contact from './Components/Contact/Contact'
+import Contact from './Components/Contact'
 import Login from './Components/Auth/Login'
 import Signup from './Components/Auth/Signup'
 import Goals from './Components/Goals/Goals'
@@ -69,6 +69,7 @@ function App() {
          <Route path='/community' element={<Chat/>}/>
          <Route path='/community/create' element={<UserChat/>}/>
          <Route path='tips' element={<Tips/>}/>
+         <Route path='contact' element={<Contact/>}/>
          <Route path='/blog/:id' element={<BlogView/>}  />
          <Route path='/blog/edit/:id' element={<BlogEdit/>}  />
          <Route path='/open/camera' element={<Camera/>}/>

@@ -6,6 +6,7 @@ import { db } from "../../../firebaseConfig";
 // import Chat from "./chatbot";
 import Chatbot from "./chatbot";
 import axios from "axios";
+import Faq from "./Faq";
 // import ChatGPT from "./chatgpt";
 
 function Home() {
@@ -653,25 +654,7 @@ function Home() {
           </div>
         </div>
 
-        <section class="container mx-auto my-20 py-14 bg-green-200 rounded-lg text-center">
-          <h3 class="text-5xl text-green-700 font-semibold">
-            Ready to Explore the App?
-          </h3>
-          <p class="mt-8 text-xl font-light text-green-700">
-            Create a Free account and get started with our mission to reduce the
-            waste and reuse it again.
-          </p>
-          <p class="mt-8">
-            <Link to={"/auth/signup"}>
-              <button
-                type="button"
-                class=" py-5 px-16 text-lg bg-teal-500 hover:bg-teal-600 rounded text-white "
-              >
-                Create Account
-              </button>
-            </Link>
-          </p>
-        </section>
+        <Faq/>
         <Chatbot />
         {/* <ChatGPT/> */}
       </main>

@@ -149,7 +149,7 @@ function Create() {
             />
 
             <button
-              className="bg-black px-5 py-2 tracking-wide uppercase m-2"
+              className="bg-black text-white px-5 py-2 tracking-wide uppercase m-2"
               type="submit"
             >
               Submit

@@ -132,9 +132,7 @@ function Signup() {
                           placeholder="******************"
                           onChange={(e) => setPassword(e.target.value)}
                         />
-                        {password.length > 4 ? null : <p class="text-xs italic text-red-500">
-                          Please choose a password.
-                        </p>}
+                        
                       </div>
                       <div class="md:ml-2">
                         <label
